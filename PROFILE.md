@@ -83,7 +83,13 @@
 | Rockefeller Foundation | Communications Intern（Summer 2026） | 2026年2月 | 不明 |
 | UNFPA | Internal Communications Consultant | 不明 | 不明 |
 
-## 10. 書類の注意点
+## 10. 運用メモ（求人チェックの自動実行について）
+- **通知の方針**: 以前は「条件に合う求人がゼロ件の日は通知しない」方針だったが、2026-09-27にユーザーから「毎日ＥＤＴ9時にメールで結果を受け取りたい（ゼロ件でもよい）」との指示あり。**以後は毎回の実行で必ず1件、結果報告の通知を送ること**（該当求人がなくても「今日は条件に合う新しい求人はありませんでした」の一言を通知に含めて送る）
+- **ネットワーク制約**: この実行環境はネットワークegressポリシーにより、WebFetch/curl での外部ドメイン直接アクセス（unjobs.org, careers.un.org, sloan.org, idealist.org, wikipedia.org 等ほぼ全て）がブロックされる（`agent-proxy`が403で拒否）。使えるのは WebSearch（Anthropic側のバックエンド経由）のみ。そのため求人ページを直接開いて締切等を確認することができず、検索結果のスニペット情報のみで判断している
+  - この制約を緩和するには、セッションを作成する際の「ネットワークアクセスポリシー」をより緩やかな設定に変更する必要がある（ユーザー側の環境設定。セッション内からは変更不可）
+- **メール配信について**: 通知（PushNotification）が実際にメールとして届くかどうかは、ユーザーのClaudeアカウント側の通知設定に依存する可能性がある。毎日9時に通知を送っても届かない場合は、アカウント側の「スケジュールタスク／トリガーの通知設定（メール通知のON/OFF）」を確認してもらう必要がある
+
+## 11. 書類の注意点
 - EOSG のチーム名表記が書類ごとに違う（Partnership and External Relations / External Relations and Partnerships）
 - 4月版 CV のファイル名が「Morya」になっている（スペルミス）
 - 求人に合わせて、Philanthropy Advisors・Furoya、McCann での昇進・LGBTQ+ 社内施策を入れるか判断する（D&I・内部広報の求人では強い材料）
