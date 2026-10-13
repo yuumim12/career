@@ -1,0 +1,8 @@
+# ログイン状態・APIキー・集めた案件データは、GitHub に上げない
+.browser-profile/
+.env
+data/
+output/
+.venv/
+__pycache__/
+.pytest_cache/
